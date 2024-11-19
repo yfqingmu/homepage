@@ -102,7 +102,7 @@ class ChatInterface {
 
       try {
         // 从 Vercel 环境变量中获取 API key
-        const apiKey = process.env.VITE_MOONSHOT_API_KEY?.trim();
+        const apiKey = process.env.MOONSHOT_API_KEY?.trim();
         if (!apiKey) {
           throw new Error("API密钥未设置");
         }
