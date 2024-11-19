@@ -106,7 +106,7 @@ class ChatInterface {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer sk-G8ZmCGbfDUa1g9CKLgueRqIL9zMhMiqcA8vaCbFiiiGwgXSZ",
+            "Authorization": "",
           },
           body: JSON.stringify({
             model: "moonshot-v1-8k",
