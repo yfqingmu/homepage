@@ -1,89 +1,92 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人主页</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人主页-myhome</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- 导航栏 -->
     <nav class="navbar">
-        <div class="logo">我的主页</div>
-        <div class="nav-links">
-            <a href="#home" class="active">首页</a>
-            <a href="#about">关于我</a>
-            <a href="#projects">项目展示</a>
-            <a href="#ai-chat">AI对话</a>
-        </div>
+      <div class="logo">我的主页</div>
+      <div class="nav-links">
+        <a href="#home" class="active">首页</a>
+        <a href="#about">关于我</a>
+        <a href="#projects">项目展示</a>
+        <a href="#ai-chat">AI对话</a>
+      </div>
     </nav>
 
     <!-- 照片轮播 -->
     <section id="carousel" class="carousel">
-        <div class="carousel-container">
-            <div class="carousel-slide active">
-                <img src="imgs/1.jpg" alt="展示图片1">
-                <p class="carousel-caption">图片描述1</p>
-            </div>
-            <div class="carousel-slide">
-                <img src="imgs/2.jpg" alt="展示图片2">
-                <p class="carousel-caption">图片描述2</p>
-            </div>
-            <div class="carousel-slide">
-                <img src="imgs/3.jpg" alt="展示图片3">
-                <p class="carousel-caption">图片描述3</p>
-            </div>
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <img src="imgs/1.jpg" alt="展示图片1" />
+          <p class="carousel-caption">图片描述1</p>
         </div>
-        <button class="carousel-btn prev">&lt;</button>
-        <button class="carousel-btn next">&gt;</button>
-        <div class="carousel-dots"></div>
+        <div class="carousel-slide">
+          <img src="imgs/2.jpg" alt="展示图片2" />
+          <p class="carousel-caption">图片描述2</p>
+        </div>
+        <div class="carousel-slide">
+          <img src="imgs/3.jpg" alt="展示图片3" />
+          <p class="carousel-caption">图片描述3</p>
+        </div>
+      </div>
+      <button class="carousel-btn prev">&lt;</button>
+      <button class="carousel-btn next">&gt;</button>
+      <div class="carousel-dots"></div>
     </section>
 
-    <!-- 个人简介 -->
+    <!-- 个人介 -->
     <section id="about" class="about">
-        <div class="profile-card">
-            <h2>关于我</h2>
-            <p>这里是个人简介内容...</p>
-            <div class="tags">
-                <span class="tag">技能1</span>
-                <span class="tag">技能2</span>
-                <span class="tag">兴趣1</span>
-            </div>
+      <div class="profile-card">
+        <h2>关于我</h2>
+        <p>这里是个人简介内容...</p>
+        <div class="tags">
+          <span class="tag">技能1</span>
+          <span class="tag">技能2</span>
+          <span class="tag">兴趣1</span>
         </div>
+      </div>
     </section>
 
     <!-- AI对话界面 -->
     <section id="ai-chat" class="chat-container">
-        <div class="chat-sidebar">
-            <h3>对话历史</h3>
-            <div class="chat-history-list"></div>
+      <div class="chat-sidebar">
+        <h3>对话历史</h3>
+        <div class="chat-history-list"></div>
+      </div>
+      <div class="chat-main">
+        <div class="chat-messages"></div>
+        <div class="chat-input">
+          <textarea placeholder="输入消息..."></textarea>
+          <button class="send-btn">发送</button>
         </div>
-        <div class="chat-main">
-            <div class="chat-messages"></div>
-            <div class="chat-input">
-                <textarea placeholder="输入消息..."></textarea>
-                <button class="send-btn">发送</button>
-            </div>
-        </div>
+      </div>
     </section>
 
     <!-- 社交媒体链接 -->
     <footer class="social-links">
-        <div class="social-icon">
-            <i class="fab fa-tiktok"></i>
-            <span>抖音号</span>
-        </div>
-        <div class="social-icon">
-            <i class="fab fa-weixin"></i>
-            <span>公众号</span>
-        </div>
-        <div class="social-icon">
-            <i class="fas fa-book"></i>
-            <span>小红书</span>
-        </div>
+      <div class="social-icon">
+        <i class="fab fa-tiktok"></i>
+        <span>抖音号</span>
+      </div>
+      <div class="social-icon">
+        <i class="fab fa-weixin"></i>
+        <span>公众号</span>
+      </div>
+      <div class="social-icon">
+        <i class="fas fa-book"></i>
+        <span>小红书</span>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html> 
+  </body>
+</html>

@@ -65,7 +65,7 @@ class ChatInterface {
       {
         role: "system",
         content:
-          "你是 Kimi，由 Moonshot AI 提供的人工智能助手，你更擅长中文和英文的对话。你会为用户提供安全，有帮助，准确的回答。同时，你会拒绝一切涉及恐怖主义，种族歧视，黄色暴力等问题的回答。Moonshot AI 为专有名词，不可翻译成其他语言。",
+          "你是 Kimi，由 Moonshot AI 提供的人工智能助手，你更擅长中文和英文的对话。你会为用户提供安全，有帮助，准确的回答。同时，你会拒绝一切涉及恐怖主义，种族歧视，黄色暴力等问题的回答。你擅长回复编程问题，Moonshot AI 为专有名词，不可翻译成其他语言。",
       },
     ];
     this.setupEventListeners();
@@ -101,22 +101,31 @@ class ChatInterface {
       const loadingDiv = this.addMessage("ai", "正在思考...");
 
       try {
-        // 使用fetch直接调用API
-        const response = await fetch("https://api.moonshot.cn/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "",
-          },
-          body: JSON.stringify({
-            model: "moonshot-v1-8k",
-            messages: [...this.messages, { role: "user", content: message }],
-            temperature: 0.3,
-          }),
-        });
+        // 从 Vercel 环境变量中获取 API key
+        const apiKey = process.env.VITE_MOONSHOT_API_KEY?.trim();
+        if (!apiKey) {
+          throw new Error("API密钥未设置");
+        }
+
+        const response = await fetch(
+          "https://api.moonshot.cn/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${apiKey}`,
+            },
+            body: JSON.stringify({
+              model: "moonshot-v1-8k",
+              messages: [...this.messages, { role: "user", content: message }],
+              temperature: 0.3,
+            }),
+          }
+        );
 
         if (!response.ok) {
-          throw new Error("API请求失败");
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.message || "API请求失败");
         }
 
         const data = await response.json();
@@ -138,7 +147,7 @@ class ChatInterface {
         this.updateChatHistory(message, aiResponse);
       } catch (error) {
         console.error("API调用错误:", error);
-        loadingDiv.textContent = "抱歉，发生了一些错误，请稍后重试。";
+        loadingDiv.textContent = `请求失败: ${error.message}`;
       } finally {
         this.isTyping = false;
       }
